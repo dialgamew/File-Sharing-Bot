@@ -54,6 +54,7 @@ else:
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(1250450587)
+AUTH_ID.append(ADMINS)
 
 LOG_FILE_NAME = "filesharingbot.txt"
 
