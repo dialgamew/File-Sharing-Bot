@@ -119,6 +119,7 @@ async def send_text(client: Client, message: Message):
             )
         ]
     ]
+
     await message.reply(
         text = AUTH_MSG.format(
                 first = message.from_user.first_name,
