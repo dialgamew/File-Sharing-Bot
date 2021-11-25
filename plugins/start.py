@@ -20,7 +20,7 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 #=====================================================================================##
 
 
-@Bot.on_message(filters.command('start') & filters.private & filters.user(AUTH_ID) & subscribed)
+@Bot.on_message(filters.command('start') & filters.private & filters.user(AUTH_ID) & filters.user(ADMINS) & subscribed)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     user_name = '@' + message.from_user.username if message.from_user.username else None
@@ -109,7 +109,7 @@ async def start_command(client: Client, message: Message):
         )
         return
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed)
+@Bot.on_message(filters.command('start') & filters.private & filters.user(ADMINS) & subscribed)
 async def send_text(client: Client, message: Message):
     buttons = [
         [
@@ -133,7 +133,7 @@ async def send_text(client: Client, message: Message):
         disable_web_page_preview = True
     )
   
-@Bot.on_message(filters.command('start') & filters.private)
+@Bot.on_message(filters.command('start') & filters.private & filters.user(ADMINS))
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
