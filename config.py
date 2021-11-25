@@ -18,7 +18,7 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
 #AUTH ID
-AUTH_ID = int(os.environ.get("AUTH_ID", ""))
+AUTH_ID = int(os.environ.get("AUTH_ID", "").split())
 
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "")
