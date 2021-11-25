@@ -37,6 +37,13 @@ try:
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
 
+try:
+    AUTH_ID=[]
+    for x in (os.environ.get("AUTH_ID", "").split()):
+        AUTH_ID.append(int(x))
+except ValueError:
+        raise Exception("Your auth list does not contain valid integers.")
+
 #Force sub message 
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b>")
 
