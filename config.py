@@ -40,6 +40,9 @@ except ValueError:
 #Force sub message 
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b>")
 
+#A7TH INFO message 
+AUTH_MSG = os.environ.get("AUTH_MESSAGE", "Hello {first}\n\n<b>You need to be authorized to be get the files from me\n\nKindly Please Click on Authorization Info button to know how to get authorized to the bot</b>")
+
 #set your Custom Caption here, Keep None for Disable Custom Caption
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 
