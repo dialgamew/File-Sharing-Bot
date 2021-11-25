@@ -110,7 +110,7 @@ async def start_command(client: Client, message: Message):
         return
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
-async def not_joined(client: Client, message: Message):
+async def send_text(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(
