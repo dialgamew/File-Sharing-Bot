@@ -119,6 +119,17 @@ async def send_text(client: Client, message: Message):
             )
         ]
     ]
+    try:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text = 'Try Again',
+                    url = f"https://t.me/{client.username}?start={message.command[1]}"
+                )
+            ]
+        )
+    except IndexError:
+        pass
 
     await message.reply(
         text = AUTH_MSG.format(
