@@ -6,7 +6,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON
+from config import AUTH_ID ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON
 from helper_func import subscribed, encode, decode, get_messages
 from database.sql import add_user, query_msg, full_userbase
 
@@ -20,7 +20,7 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 #=====================================================================================##
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed)
+@Bot.on_message(filters.command('start') & filters.private & filters.user(AUTH_ID) & subscribed)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     user_name = '@' + message.from_user.username if message.from_user.username else None
